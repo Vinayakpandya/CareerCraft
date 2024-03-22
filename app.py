@@ -5,6 +5,19 @@ import pandas as pd
 import resume
 from resume import emaill
 st.set_page_config(page_title="CareerCraft", page_icon="CareerCraft.png", layout="centered", initial_sidebar_state="auto", menu_items=None)
+def set_bg_hack_url():       
+    st.markdown(
+          f"""
+          <style>
+          .stApp {{
+              background: url("https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_1280.jpg");
+              background-size: cover
+          }}
+          </style>
+          """,
+          unsafe_allow_html=True
+      )
+set_bg_hack_url()
 
 
 conn = sqlite3.connect('data.db')

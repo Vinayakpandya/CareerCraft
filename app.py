@@ -580,6 +580,7 @@ if choice=="SignUp":
         Mname = st.text_input("Mobile Number")
         Email = st.text_input("Email")
         City = st.text_input("City")
+	Status = st.radio("Select Gender: ",('Male', 'Female'))
         Password = st.text_input("Password",type="password")
         CPassword = st.text_input("Confirm Password",type="password")
         b2=st.button("SignUp")

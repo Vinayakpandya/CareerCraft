@@ -123,10 +123,6 @@ if choice=="Login":
                             SkillsDesc.append(st.text_input("Skill Description"+str(m)))
                         choiceEX = st.selectbox("No of ExtraCurriculum",menuN)
                         ExtrasDesc=[]
-                        for n in range(int(choiceS)):
-                            TechSkillsDesc.append(st.text_input("TechSkill Description"+str(m)))
-                        choiceEX = st.selectbox("No of ExtraCurriculum",menuN)
-                        ExtrasDesc=[]
                         for l in range(int(choiceEX)):
                             ExtrasDesc.append(st.text_input("Extra Curriculum"+str(l)))
                         if st.button("Build"):

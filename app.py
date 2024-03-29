@@ -4,20 +4,8 @@ import sqlite3
 import pandas as pd
 import resume
 from resume import emaill
-st.set_page_config(page_title="CareerCrafter", page_icon="fevicon.jpg", layout="centered", initial_sidebar_state="auto", menu_items=None)
-def set_bg_hack_url():       
-    st.markdown(
-          f"""
-          <style>
-          .stApp {{
-              background: url("https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_1280.jpg");
-              background-size: cover
-          }}
-          </style>
-          """,
-          unsafe_allow_html=True
-      )
-set_bg_hack_url()
+st.set_page_config(page_title="CareerCraft", page_icon="CareerCraft.png", layout="centered", initial_sidebar_state="auto", menu_items=None)
+
 
 conn = sqlite3.connect('data.db')
 c = conn.cursor()
@@ -63,7 +51,6 @@ def check_prof():
     data = c.fetchall()
     return data
 
-st.image("logo.png")
 menu  = ["Home","Login","SignUp","Career Solution","Contact US"]
 choice = st.sidebar.selectbox("Menu",menu)
 
@@ -71,7 +58,7 @@ if choice=="Home":
     st.markdown(
         """
         <p align="justify">
-        CareerCrafter, the established career mentor of the new era, is a full-fledged career solution provider based in Kerala with years of satisfaction nationally and internationally. Understanding the most surging needs for directing the new generation students to a desirable career in a world of sweeping changes, we have adopted an exemplary mission of leading the students into a bright future by giving them proper direction, bolstering their confidence and instilling the power of self-esteem in them. To reinvigorate their entity and make them prepared for the competitive world We adopt various methods of aptitude tests and intensive counselling programmes. By means of exclusive career mentoring and career counselling manners Career Crafter takes up the most demanding responsibility of each student’s educational development and his career planning from the very outset with a special focus on comprehensive achievement."
+        <b>CareerCrafter</b>, the established career mentor of the new era, is a full-fledged career solution provider based in Kerala with years of satisfaction nationally and internationally. Understanding the most surging needs for directing the new generation students to a desirable career in a world of sweeping changes, we have adopted an exemplary mission of leading the students into a bright future by giving them proper direction, bolstering their confidence and instilling the power of self-esteem in them. To reinvigorate their entity and make them prepared for the competitive world We adopt various methods of aptitude tests and intensive counselling programmes. By means of exclusive career mentoring and career counselling manners Career Crafter takes up the most demanding responsibility of each student’s educational development and his career planning from the very outset with a special focus on comprehensive achievement.
         </p>
         """
         ,unsafe_allow_html=True)
@@ -136,11 +123,6 @@ if choice=="Login":
                             SkillsDesc.append(st.text_input("Skill Description"+str(m)))
                         choiceEX = st.selectbox("No of ExtraCurriculum",menuN)
                         ExtrasDesc=[]
-                        TechSkillDesc=[]
-                        for n in range(int(choiceT)):
-                            TechSkillDesc.append(st.text_input("TechSkill Description"+str(n)))
-                        choiceEX = st.selectbox("No of ExtraCurriculum",menuN)
-                        ExtrasDesc=[]
                         for l in range(int(choiceEX)):
                             ExtrasDesc.append(st.text_input("Extra Curriculum"+str(l)))
                         if st.button("Build"):
@@ -171,7 +153,7 @@ if choice=="Login":
                         video5 = """
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/yX40xebDK68?si=nBnzhOH20Zvy1-F4" title="YouTube video player" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         """
-                        st.markdown(video3,unsafe_allow_html=True)
+                        st.markdown(video5,unsafe_allow_html=True)
                      
                         
                     if choice3=="Search Job":
@@ -185,6 +167,7 @@ if choice=="Login":
                         if st.button("Apply"):
                             emaill(apj)
                             st.success("Resume Email Success")
+                    
                     if choice3=="Give Test":
                         menuT = ["Java","SQL","Logical Reasoning"]
                         choiceT = st.selectbox("Select",menuT)
@@ -319,194 +302,192 @@ if choice=="Login":
                                         else:
                                             an=an
                                     st.success("You got "+str(an)+""+"/5"+"\nRight Answer is C,A,C,C, and A")
-                                    
-                                    
                             
                             
                     if choice3=="Ask Question":
                         st.text_input("Type Question")
                         if st.button('Ask'):
                             st.success("Posted")
-                     if choice3=="Q&A":
-                       menuQ = ["SQL","Python","OOPS","IOT"]
-                       choiceQ = st.selectbox("Select",menuQ)
-                       if choiceQ=="SQL":
-                           st.markdown(
-                               """
-                               <p align="justify">
-                               <b>1. What is Database?</b>
-                               </p>
-                               <p align="justify">
-                               A database is a structured collection of data that is organized and stored electronically
-                               in a computer system. It is designed to efficiently manage, store, retrieve, and
-                               manipulate data according to predefined criteria and requirements. Databases are fundamental
-                               components of information systems and are widely used in various applications, ranging from
-                               simple personal data management to large-scale enterprise systems.
-                               </p>
-                               <b>2. What is the purpose of a primary key in a database table?</b>
-                               </p>
-                               <p align="justify">
-                               The primary key uniquely identifies each record in the table and ensures data integrity
-                               by preventing duplicate or null values in the key columns.
-                               </p>
-                               <b>3. What does the 'select' statement do?</b>
-                               </p>
-                               <p align="justify">
-                               The SELECT statement retrieves data from one or more tables in a database based on 
-                               specified criteria and returns the result set of rows that match the criteria.
-                               </p>
-                               <b>4. What is the purpose of the SQL 'JOIN' keyword?</b>
-                               </p>
-                               <p align="justify">
-                               The JOIN keyword is used to combine rows from two or more tables based on a related
-                               column between them, allowing data from different tables to be retrieved together
-                               in a single result set.
-                               </p>
-                               <b>5. What does the SQL 'GROUP BY' clause do?</b>
-                               </p>
-                               <p align="justify">
-                               The GROUP BY clause is used to group rows that have the same values into summary
-                               rows, typically to perform aggregate functions like 'SUM', 'COUNT', 'AVG', etc.,
-                               on each group.
-                               """
-                              ,unsafe_allow_html=True)
-                           
-                       if choiceQ=="Python":
-                             st.markdown(
-                                 """
-                                 <p align="justify">
-                                 <b>1. What is Python?</b>
-                                 </p>
-                                 <p align="justify">
-                                 Python is an interpreted scripting language that is known for its power,
-                                 interactivity, and object-oriented nature. It utilizes English keywords extensively
-                                 and has a simpler syntax compared to many other programming languages.
-                                 </p>
-                                 <b>2. What is pep 8?
-                                 </p>
-                                 <p align="justify">
-                                 PEP in Python stands for Python Enhancement Proposal. It comprises a collection
-                                 of guidelines that outline the optimal approach for crafting and structuring Python
-                                 code to ensure the utmost clarity and legibility.
-                                 </p>
-                                 <b>3.What is a dictionary in Python?
-                                 </p>
-                                 <p align="justify">
-                                 Python supports various data types, including dictionaries. A dictionary in Python
-                                 is a collection of elements that are stored as key-value pairs. It is an unordered
-                                 data structure, and the indexing is done based on the keys assigned to each element.
-                                 Let’s consider an example: we have a dictionary named ‘dict’ with two keys, ‘Country’
-                                 and ‘Capital’, which have corresponding values ‘India’ and ‘New Delhi’, respectively.
-                                 """
-                                 ,unsafe_allow_html=True)
-                         
-             
-                       if choiceQ=="OOPS":
-                             st.markdown(
-                                 """
-                                 <p align="justify">
-                                 <b>1.  What is Object Oriented Programming (OOPs)?</b>
-                                 </p>
-                                 <p align="justify">
-                                 Object Oriented Programming (also known as OOPs) is a programming paradigm where the complete
-                                 software operates as a bunch of objects talking to each other. An object is a collection of
-                                 data and the methods which operate on that data. 
-                                 </p>
-                                 <b>2. What is a Class?
-                                 </p>
-                                 <p align="justify">
-                                 A class is a building block of Object Oriented Programs. It is a user-defined data type that
-                                 contains the data members and member functions that operate on the data members. It is like a
-                                 blueprint or template of objects having common properties and methods.
-                                 </p>
-                                 <b>3.  What is the difference between overloading and overriding?
-                                 </p>
-                                 <p align="justify">
-                                 A compile-time polymorphism feature called overloading allows an entity to have numerous
-                                 implementations of the same name. Method overloading and operator overloading are two examples.
-                                 
-                                 Overriding is a form of runtime polymorphism where an entity with the same name but a different
-                                 implementation is executed. It is implemented with the help of virtual functions.
-                                 </p>
-                                 <b>4.  What different types of inheritance are there?
-                                 </p>
-                                 <p align="justify">
-                                 Inheritance can be classified into 5 types which are as follows:\n
-                                    1. <b>Single Inheritance</b>: Child class derived directly from the base class.\n
-                                    2. <b>Multiple Inheritance</b>: Child class derived from multiple base classes.\n
-                                    3. <b>Multilevel Inheritance</b>: Child class derived from the class which is also derived from another base class.\n
-                                    4. <b>Hierarchical Inheritance</b>: Multiple child classes derived from a single base class.\n
-                                    5. <b>Hybrid Inheritance</b>: Inheritance consisting of multiple inheritance types of the above specified.
-                                 </p>
-                                 <b>5. What is Inheritance?
-                                 </p>
-                                 <p align="justify">
-                                 Inheritance is one of the major features of object-oriented programming, by which an entity inherits
-                                 some characteristics and behaviors of some other entity and makes them their own. Inheritance helps to
-                                 improve and facilitate code reuse.
-                                 The various types of inheritance include:\n
-                                 Single Inheritance\n
-                                 Multiple Inheritance\n
-                                 Multilevel Inheritance\n
-                                 Hierarchical Inheritance\n
-                                 Hybrid Inheritance
-                                 """
-                                 ,unsafe_allow_html=True) 
+                    if choice3=="Q&A":
+                        menuQ = ["SQL","Python","OOPS","IOT"]
+                        choiceQ = st.selectbox("Select",menuQ)
+                        if choiceQ=="SQL":
+                            st.markdown(
+                                """
+                                <p align="justify">
+                                <b>1. What is Database?</b>
+                                </p>
+                                <p align="justify">
+                                A database is a structured collection of data that is organized and stored electronically
+                                in a computer system. It is designed to efficiently manage, store, retrieve, and
+                                manipulate data according to predefined criteria and requirements. Databases are fundamental
+                                components of information systems and are widely used in various applications, ranging from
+                                simple personal data management to large-scale enterprise systems.
+                                </p>
+                                <b>2. What is the purpose of a primary key in a database table?</b>
+                                </p>
+                                <p align="justify">
+                                The primary key uniquely identifies each record in the table and ensures data integrity
+                                by preventing duplicate or null values in the key columns.
+                                </p>
+                                <b>3. What does the 'select' statement do?</b>
+                                </p>
+                                <p align="justify">
+                                The SELECT statement retrieves data from one or more tables in a database based on 
+                                specified criteria and returns the result set of rows that match the criteria.
+                                </p>
+                                <b>4. What is the purpose of the SQL 'JOIN' keyword?</b>
+                                </p>
+                                <p align="justify">
+                                The JOIN keyword is used to combine rows from two or more tables based on a related
+                                column between them, allowing data from different tables to be retrieved together
+                                in a single result set.
+                                </p>
+                                <b>5. What does the SQL 'GROUP BY' clause do?</b>
+                                </p>
+                                <p align="justify">
+                                The GROUP BY clause is used to group rows that have the same values into summary
+                                rows, typically to perform aggregate functions like 'SUM', 'COUNT', 'AVG', etc.,
+                                on each group.
+                                """
+                               ,unsafe_allow_html=True)
+                            
+                        if choiceQ=="Python":
+                              st.markdown(
+                                  """
+                                  <p align="justify">
+                                  <b>1. What is Python?</b>
+                                  </p>
+                                  <p align="justify">
+                                  Python is an interpreted scripting language that is known for its power,
+                                  interactivity, and object-oriented nature. It utilizes English keywords extensively
+                                  and has a simpler syntax compared to many other programming languages.
+                                  </p>
+                                  <b>2. What is pep 8?
+                                  </p>
+                                  <p align="justify">
+                                  PEP in Python stands for Python Enhancement Proposal. It comprises a collection
+                                  of guidelines that outline the optimal approach for crafting and structuring Python
+                                  code to ensure the utmost clarity and legibility.
+                                  </p>
+                                  <b>3.What is a dictionary in Python?
+                                  </p>
+                                  <p align="justify">
+                                  Python supports various data types, including dictionaries. A dictionary in Python
+                                  is a collection of elements that are stored as key-value pairs. It is an unordered
+                                  data structure, and the indexing is done based on the keys assigned to each element.
+                                  Let’s consider an example: we have a dictionary named ‘dict’ with two keys, ‘Country’
+                                  and ‘Capital’, which have corresponding values ‘India’ and ‘New Delhi’, respectively.
+                                  """
+                                  ,unsafe_allow_html=True)
+                          
+              
+                        if choiceQ=="OOPS":
+                              st.markdown(
+                                  """
+                                  <p align="justify">
+                                  <b>1.  What is Object Oriented Programming (OOPs)?</b>
+                                  </p>
+                                  <p align="justify">
+                                  Object Oriented Programming (also known as OOPs) is a programming paradigm where the complete
+                                  software operates as a bunch of objects talking to each other. An object is a collection of
+                                  data and the methods which operate on that data. 
+                                  </p>
+                                  <b>2. What is a Class?
+                                  </p>
+                                  <p align="justify">
+                                  A class is a building block of Object Oriented Programs. It is a user-defined data type that
+                                  contains the data members and member functions that operate on the data members. It is like a
+                                  blueprint or template of objects having common properties and methods.
+                                  </p>
+                                  <b>3.  What is the difference between overloading and overriding?
+                                  </p>
+                                  <p align="justify">
+                                  A compile-time polymorphism feature called overloading allows an entity to have numerous
+                                  implementations of the same name. Method overloading and operator overloading are two examples.
+                                  
+                                  Overriding is a form of runtime polymorphism where an entity with the same name but a different
+                                  implementation is executed. It is implemented with the help of virtual functions.
+                                  </p>
+                                  <b>4.  What different types of inheritance are there?
+                                  </p>
+                                  <p align="justify">
+                                  Inheritance can be classified into 5 types which are as follows:\n
+                                     1. <b>Single Inheritance</b>: Child class derived directly from the base class.\n
+                                     2. <b>Multiple Inheritance</b>: Child class derived from multiple base classes.\n
+                                     3. <b>Multilevel Inheritance</b>: Child class derived from the class which is also derived from another base class.\n
+                                     4. <b>Hierarchical Inheritance</b>: Multiple child classes derived from a single base class.\n
+                                     5. <b>Hybrid Inheritance</b>: Inheritance consisting of multiple inheritance types of the above specified.
+                                  </p>
+                                  <b>5. What is Inheritance?
+                                  </p>
+                                  <p align="justify">
+                                  Inheritance is one of the major features of object-oriented programming, by which an entity inherits
+                                  some characteristics and behaviors of some other entity and makes them their own. Inheritance helps to
+                                  improve and facilitate code reuse.
+                                  The various types of inheritance include:\n
+                                  Single Inheritance\n
+                                  Multiple Inheritance\n
+                                  Multilevel Inheritance\n
+                                  Hierarchical Inheritance\n
+                                  Hybrid Inheritance
+                                  """
+                                  ,unsafe_allow_html=True) 
 
-                       if choiceQ=="IOT":
-                             st.markdown(
-                                 """
-                                 <p align="justify">
-                                 <b>1. What is IoT?
-                                 </p>
-                                 <p align="justify">
-                                 IoT refers to the internet of things. It is a system of interrelated physical devices that are each
-                                 assigned a unique identifier. IoT extends internet connectivity beyond traditional platforms, such
-                                 as PCs, laptops and mobile phones.
-                                 </p>
-                                 <b>2.  What is meant by a smart city in IoT?
-                                 </p>
-                                 <p align="justify">
-                                 A smart city is an urban area that uses IoT technologies to connect city services and enhance their
-                                 delivery. Smart cities can help reduce crime, optimize public transportation, improve air quality,
-                                 streamline traffic flow, lower energy use, manage infrastructure, reduce health risks, simplify parking,
-                                 manage utilities and improve a variety of other processes. Using sensor-driven data collection, the
-                                 smart city can orchestrate and automate a wide range of services, while reducing costs and making those
-                                 services easier to access for more people.
-                                 </p>
-                                 <b>3. What are the main components of the IoT architecture?
-                                 </p>
-                                 <p align="justify">
-                                 The IoT architecture consists of the following components:\n
-                                 * <b>Smart devices</b>: Include embedded systems for carrying out tasks such as collecting and transmitting
-                                 data or responding to commands from external control and management systems.
-                                 * <b>Data processing platforms</b>: Include the hardware and software necessary to process and analyze the
-                                 data coming in over the network from the IoT devices.
-                                 * <b>Storage platforms</b>: Manage and store the data and interface with the data processing platform to
-                                 support its operations.
-                                 * <b>Network infrastructure</b>: Facilitates communications between the devices and the data processing and
-                                 storage platforms.
-                                 * <b>UI</b>: Enables individuals to connect directly to IoT devices to configure and manage them, as well
-                                 as verify their status and troubleshoot them.
-                                 </p>
-                                 <b>4. Explain the meaning of Arduino.
-                                 </p>
-                                 <p align="justify">
-                                 Arduino is an open-source platform for building electronics projects using easy-to-use hardware and software.
-                                 A microcontroller is the common feature of all Arduino boards. The microcontrollers on board are capable of 
-                                 reading inputs (e.g., light on a sensor, an object near a sensor) and converting them to outputs
-                                 (drive a motor, ring an alarm, turn on an LED, display information on an LCD). It is possible to connect multiple
-                                 devices and exchange data in real-time between them. It is also possible to monitor them remotely using a simple
-                                 interface.
-                                 </p>
-                                 <b>5. What do you mean by Raspberry Pi?
-                                 </p>
-                                 <p align="justify">
-                                 Raspberry Pi is a card-sized computer with features like General Purpose Input Output (GPIO) pins, WiFi,
-                                 and Bluetooth that allow it to communicate, control, and connect to other external devices. Combining IoT
-                                 applications with Raspberry Pi helps businesses embrace technology more effectively.
-                                 """
-                                 ,unsafe_allow_html=True)
+                        if choiceQ=="IOT":
+                              st.markdown(
+                                  """
+                                  <p align="justify">
+                                  <b>1. What is IoT?
+                                  </p>
+                                  <p align="justify">
+                                  IoT refers to the internet of things. It is a system of interrelated physical devices that are each
+                                  assigned a unique identifier. IoT extends internet connectivity beyond traditional platforms, such
+                                  as PCs, laptops and mobile phones.
+                                  </p>
+                                  <b>2.  What is meant by a smart city in IoT?
+                                  </p>
+                                  <p align="justify">
+                                  A smart city is an urban area that uses IoT technologies to connect city services and enhance their
+                                  delivery. Smart cities can help reduce crime, optimize public transportation, improve air quality,
+                                  streamline traffic flow, lower energy use, manage infrastructure, reduce health risks, simplify parking,
+                                  manage utilities and improve a variety of other processes. Using sensor-driven data collection, the
+                                  smart city can orchestrate and automate a wide range of services, while reducing costs and making those
+                                  services easier to access for more people.
+                                  </p>
+                                  <b>3. What are the main components of the IoT architecture?
+                                  </p>
+                                  <p align="justify">
+                                  The IoT architecture consists of the following components:\n
+                                  * <b>Smart devices</b>: Include embedded systems for carrying out tasks such as collecting and transmitting
+                                  data or responding to commands from external control and management systems.
+                                  * <b>Data processing platforms</b>: Include the hardware and software necessary to process and analyze the
+                                  data coming in over the network from the IoT devices.
+                                  * <b>Storage platforms</b>: Manage and store the data and interface with the data processing platform to
+                                  support its operations.
+                                  * <b>Network infrastructure</b>: Facilitates communications between the devices and the data processing and
+                                  storage platforms.
+                                  * <b>UI</b>: Enables individuals to connect directly to IoT devices to configure and manage them, as well
+                                  as verify their status and troubleshoot them.
+                                  </p>
+                                  <b>4. Explain the meaning of Arduino.
+                                  </p>
+                                  <p align="justify">
+                                  Arduino is an open-source platform for building electronics projects using easy-to-use hardware and software.
+                                  A microcontroller is the common feature of all Arduino boards. The microcontrollers on board are capable of 
+                                  reading inputs (e.g., light on a sensor, an object near a sensor) and converting them to outputs
+                                  (drive a motor, ring an alarm, turn on an LED, display information on an LCD). It is possible to connect multiple
+                                  devices and exchange data in real-time between them. It is also possible to monitor them remotely using a simple
+                                  interface.
+                                  </p>
+                                  <b>5. What do you mean by Raspberry Pi?
+                                  </p>
+                                  <p align="justify">
+                                  Raspberry Pi is a card-sized computer with features like General Purpose Input Output (GPIO) pins, WiFi,
+                                  and Bluetooth that allow it to communicate, control, and connect to other external devices. Combining IoT
+                                  applications with Raspberry Pi helps businesses embrace technology more effectively.
+                                  """
+                                  ,unsafe_allow_html=True)
                 if Usr=="Admin":
                     
                     Email1=st.text_input("Delete Email")
@@ -561,7 +542,6 @@ if choice=="SignUp":
         Mname = st.text_input("Mobile Number")
         Email = st.text_input("Email")
         City = st.text_input("City")
-        Status = st.radio("Select Gender: ",('Male', 'Female'))
         Password = st.text_input("Password",type="password")
         CPassword = st.text_input("Confirm Password",type="password")
         b2=st.button("SignUp")
@@ -587,7 +567,6 @@ if choice=="SignUp":
         Mname = st.text_input("Mobile Number")
         Email = st.text_input("Email")
         City = st.text_input("City")
-        Status = st.radio("Select Gender: ",('Male', 'Female'))
         Password = st.text_input("Password",type="password")
         CPassword = st.text_input("Confirm Password",type="password")
         b2=st.button("SignUp")
@@ -607,7 +586,6 @@ if choice=="SignUp":
                     st.warning("Not Valid Mobile Number")
             else:
                 st.warning("Pass Does Not Match")
-                
 if choice=="Career Solution":
     crmenu  = ["Java","python",".net","Android","PHP"]
     choice = st.selectbox("Select Your Choise",crmenu)
@@ -732,21 +710,10 @@ if choice=="Career Solution":
             st.text("be classified as software developers or web developers.PHP developer")
             st.text("skills are abilities you can utilize as a web developer specializing")
             st.text("in using PHP to write code for server-side applications.")
-        
-      
-    
 
-
-
-
-
-                    
 if choice=="Contact US":
-    st.text("CONTACT INFO:")
-    st.image("contact.png")
+    st.header("CONTACT INFO:")
+    st.image("contact.png",width=50)
     st.subheader("9537452279")
-    st.image("mailbox.png")
+    st.image("mailbox.png",width=50)
     st.subheader("careercraft@gmail.com")
-                    
-
-

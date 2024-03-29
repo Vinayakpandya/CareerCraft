@@ -3,6 +3,7 @@ def res(Name,Title,Contact,
         WorkOneTitle,WorkOneTime,WorkOneDesc,Workduration,
         EduOneTitle,EduOneTime,EduOneDesc,Specification,
         SkillsDesc,
+        TechSkillsDesc,
         ExtrasDesc):
     # Text Variables
     Header = '>>>This resume was generated Team JobPortal'
@@ -10,6 +11,7 @@ def res(Name,Title,Contact,
     WorkHeader = 'EXPERIENCE'
     EduHeader = 'EDUCATION'
     SkillsHeader = 'Skills'
+    TechSkillsHeader = 'TechSkills'
     ExtrasTitle = 'Extra Curriculum'
     # Setting style for bar graphs
     import matplotlib.pyplot as plt
@@ -62,6 +64,11 @@ def res(Name,Title,Contact,
     plt.annotate(SkillsHeader, (.7,.8), weight='bold', fontsize=10, color='#ffffff')
     for i in range(len(SkillsDesc)):
         plt.annotate(SkillsDesc[i], (.7,.78-i*.02), weight='regular', fontsize=10, color='#ffffff')
+        
+    plt.annotate(TechSkillsHeader, (.7,.8), weight='bold', fontsize=10, color='#ffffff')
+    for i in range(len(TechSkillsDesc)):
+        plt.annotate(TechSkillsDesc[i], (.7,.78-i*.02), weight='regular', fontsize=10, color='#ffffff')
+    
     
     plt.annotate(ExtrasTitle, (.7,.43), weight='bold', fontsize=10, color='#ffffff')
     for i in range(len(ExtrasDesc)):

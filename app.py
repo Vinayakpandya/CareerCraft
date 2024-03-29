@@ -4,20 +4,7 @@ import sqlite3
 import pandas as pd
 import resume
 from resume import emaill
-st.set_page_config(page_title="CareerCrafter", page_icon="fevicon.jpg", layout="centered", initial_sidebar_state="auto", menu_items=None)
-def set_bg_hack_url():       
-    st.markdown(
-          f"""
-          <style>
-          .stApp {{
-              background: url("https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252_1280.jpg");
-              background-size: cover
-          }}
-          </style>
-          """,
-          unsafe_allow_html=True
-      )
-set_bg_hack_url()
+st.set_page_config(page_title="Careerguru", page_icon="fevicon.jpg", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 conn = sqlite3.connect('data.db')
 c = conn.cursor()
@@ -64,14 +51,14 @@ def check_prof():
     return data
 
 st.image("logo.png")
-menu  = ["Home","Login","SignUp","Contact US"]
+menu = ["Home","Login","SignUp","Contact US"]
 choice = st.sidebar.selectbox("Menu",menu)
 
 if choice=="Home":
     st.markdown(
         """
         <p align="justify">
-        CareerCrafter, the established career mentor of the new era, is a full-fledged career solution provider based in Kerala with years of satisfaction nationally and internationally. Understanding the most surging needs for directing the new generation students to a desirable career in a world of sweeping changes, we have adopted an exemplary mission of leading the students into a bright future by giving them proper direction, bolstering their confidence and instilling the power of self-esteem in them. To reinvigorate their entity and make them prepared for the competitive world We adopt various methods of aptitude tests and intensive counselling programmes. By means of exclusive career mentoring and career counselling manners Career Crafter takes up the most demanding responsibility of each student’s educational development and his career planning from the very outset with a special focus on comprehensive achievement."
+        Career Guru, the established career mentor of the new era, is a full-fledged career solution provider based in Kerala with years of satisfaction nationally and internationally. Understanding the most surging needs for directing the new generation students to a desirable career in a world of sweeping changes, we have adopted an exemplary mission of leading the students into a bright future by giving them proper direction, bolstering their confidence and instilling the power of self-esteem in them. To reinvigorate their entity and make them prepared for the competitive world We adopt various methods of aptitude tests and intensive counselling programmes. By means of exclusive career mentoring and career counselling manners Career Guru takes up the most demanding responsibility of each student’s educational development and his career planning from the very outset with a special focus on comprehensive achievement."
         </p>
         """
         ,unsafe_allow_html=True)
@@ -134,11 +121,6 @@ if choice=="Login":
                         SkillsDesc=[]
                         for m in range(int(choiceS)):
                             SkillsDesc.append(st.text_input("Skill Description"+str(m)))
-                        choiceEX = st.selectbox("No of ExtraCurriculum",menuN)
-                        ExtrasDesc=[]
-                        TechSkillDesc=[]
-                        for n in range(int(choiceT)):
-                            TechSkillDesc.append(st.text_input("TechSkill Description"+str(n)))
                         choiceEX = st.selectbox("No of ExtraCurriculum",menuN)
                         ExtrasDesc=[]
                         for l in range(int(choiceEX)):
@@ -457,7 +439,6 @@ if choice=="SignUp":
         Mname = st.text_input("Mobile Number")
         Email = st.text_input("Email")
         City = st.text_input("City")
-        Status = st.radio("Select Gender: ",('Male', 'Female'))
         Password = st.text_input("Password",type="password")
         CPassword = st.text_input("Confirm Password",type="password")
         b2=st.button("SignUp")

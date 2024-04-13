@@ -258,7 +258,7 @@ if choice=="Login":
                         for l in range(int(choiceEX)):
                             ExtrasDesc.append(st.text_input("Extra Curriculum"+str(l)))
                         if st.button("Build"):
-                            resume.res(Name,Title,Contact,ProjectOneTitle,ProjectOneDesc,
+                            res(Name,Title,Contact,ProjectOneTitle,ProjectOneDesc,
                                        WorkOneTitle,WorkOneTime,WorkOneDesc,Workduration,
                                        EduOneTitle,EduOneTime,EduOneDesc,Specification,
                                        SkillsDesc,ExtrasDesc)

@@ -2,7 +2,6 @@ import streamlit as st
 import re
 import sqlite3
 import pandas as pd
-import resume
 import matplotlib.pyplot as plt
 def res(Name,Title,Contact,
         ProjectOneTitle,ProjectOneDesc,

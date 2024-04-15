@@ -3,6 +3,22 @@ import re
 import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
+st.set_page_config(page_title="CareerCraft", page_icon="CareerCraft.png", layout="centered", initial_sidebar_state="auto", menu_items=None)
+#Set page Background
+def set_bg_hack_url():       
+    st.markdown(
+          f"""
+          <style>
+          .stApp {{
+              background: url("https://raw.githubusercontent.com/vyasdhairya/cropapp/main/managemate2.png");
+              background-size: cover
+          }}
+          </style>
+          """,
+          unsafe_allow_html=True
+      )
+set_bg_hack_url()
+
 def res(Name,Title,Contact,
         ProjectOneTitle,ProjectOneDesc,
         WorkOneTitle,WorkOneTime,WorkOneDesc,Workduration,
@@ -136,8 +152,6 @@ def emaill(email):
       
     # terminating the session
     s.quit()
-st.set_page_config(page_title="CareerCraft", page_icon="CareerCraft.png", layout="centered", initial_sidebar_state="auto", menu_items=None)
-
 
 conn = sqlite3.connect('data.db')
 c = conn.cursor()

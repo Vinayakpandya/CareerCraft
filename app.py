@@ -201,6 +201,9 @@ menu  = ["Home","Login","SignUp","Career Solution","Contact US"]
 choice = st.sidebar.selectbox("Menu",menu)
 
 if choice=="Home":
+    left_co, cent_co,last_co = st.columns(3)
+    with cent_co:
+        st.image("CareerCraft.png",width=200)
     st.markdown(
         """
         <p align="justify">
